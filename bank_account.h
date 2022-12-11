@@ -5,7 +5,7 @@
 
 class Bank_Account {
 private:
-    struct UserInfo {
+    struct UserCredentials {
         std::string username;
         std::string password;
     };
@@ -13,12 +13,12 @@ private:
     struct PersonalInfo {
         std::string fullName;
         int age {};
-        std::string dob;
         std::string socialSecurity;
+        std::string dob;
         std::string email;
         std::string cellNumber;
         std::string address;
-        UserInfo info;
+        UserCredentials credentials;
     };
 
     long int checkingAccount;
@@ -32,6 +32,6 @@ public:
         savingsAccount = savings;
     };
     void createAccount();
-    void displayAccountInfo();
+    void displayAccountInfo() const;
 };
 #endif
