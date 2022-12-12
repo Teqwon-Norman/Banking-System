@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
+
 #include "bank_account.h"
+#include "account_management.h"
 
 int main() {
-    // test out bank_account class to make sure our fields get stored properly
-    Bank_Account bank(1000, 5000);
+    BankAccount bank;
     bank.createAccount();
     bank.displayAccountInfo();
+
 
     return 0;
 }

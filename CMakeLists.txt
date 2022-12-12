@@ -3,5 +3,4 @@ project(bank_system)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(Headers bank_account.h)
-add_executable(bank_system main.cpp bank_account.cpp)
+add_executable(bank_system main.cpp bank_account.cpp STACK/stack.h STACK/stack.cpp)

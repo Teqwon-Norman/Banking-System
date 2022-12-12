@@ -1,18 +1,24 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <assert.h>
 #include "bank_account.h"
 
-void Bank_Account::createAccount() {
-    std::string NAME, DOB, SOCIALSECURITY, EMAIL, NUMBER, ADDR;
+void BankAccount::createAccount() {
+    std::string FIRST, LAST, DOB, SOCIALSECURITY, EMAIL, NUMBER, ADDR;
     int AGE;
 
     std::cout << "***************************************************************" << std::endl;
     std::cout << "******************** BANK ACCOUNT SIGN-UP *********************" << std::endl;
     std::cout << "***************************************************************" << std::endl;
 
-    std::cout << "Please enter your full name (format: First [space] Last):" << std::endl;
-    std::getline(std::cin, NAME);
-    personal.fullName = NAME;
+    std::cout << "Please enter your first name:" << std::endl;
+    std::getline(std::cin, FIRST);
+    personal.first = FIRST;
+
+    std::cout << "Please enter your last name:" << std::endl;
+    std::getline(std::cin, LAST);
+    personal.last = LAST;
 
     std::cout << "Please enter your date of birth (format: mm/dd/yyyy):" << std::endl;
     std::cin >> DOB;
@@ -58,11 +64,11 @@ void Bank_Account::createAccount() {
     personal.credentials.password = password;
 }
 
-void Bank_Account::displayAccountInfo() const{
+void BankAccount::displayAccountInfo() const {
     std::cout << "\n**************************************" << std::endl;
     std::cout << "Displaying Account Information Below..." << std::endl;
     std::cout << "***************************************" << std::endl;
-    std::cout << "Name: " << personal.fullName << std::endl;
+    std::cout << "Name: " << personal.first + " " + personal.last << std::endl;
     std::cout << "Age: " << personal.age << std::endl;
     std::cout << "DOB: " << personal.dob << std::endl;
     std::cout << "Social Security: " << "***-**-" << personal.socialSecurity.substr(7, 10) << std::endl;
@@ -81,4 +87,10 @@ void Bank_Account::displayAccountInfo() const{
         std::cout << "Username: " << personal.credentials.username << std::endl;
         std::cout << "Password: " << personal.credentials.password << std::endl;
     }
-};
+}
+
+void BankAccount::storeNewAccount() {
+    std::fstream f;
+    f.open(personal.first, std::fstream::out);
+    assert(f.is_open());
+}

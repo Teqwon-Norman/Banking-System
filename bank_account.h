@@ -1,9 +1,9 @@
-#include <string>
-
 #ifndef BANK_ACCOUNT_H
 #define BANK_ACCOUNT_H
 
-class Bank_Account {
+#include <string>
+
+class BankAccount {
 private:
     struct UserCredentials {
         std::string username;
@@ -11,7 +11,8 @@ private:
     };
 
     struct PersonalInfo {
-        std::string fullName;
+        std::string first;
+        std::string last;
         int age {};
         std::string socialSecurity;
         std::string dob;
@@ -21,17 +22,17 @@ private:
         UserCredentials credentials;
     };
 
+    std::string financialInstitution;
     long int checkingAccount;
     long int savingsAccount;
 
 public:
+    // struct instance which also mapped to the users login-credentials
     PersonalInfo personal;
-    Bank_Account(long int checking, long int savings)
-    {
-        checkingAccount = checking;
-        savingsAccount = savings;
-    };
+    BankAccount; // constructor
+
     void createAccount();
     void displayAccountInfo() const;
+    void storeNewAccount();
 };
 #endif
