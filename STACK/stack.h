@@ -20,6 +20,6 @@ public:
     void push(int);
     int pop(int&);
     bool isEmpty();
-    int getSize() { return size; }l
+    int getSize() { return size; };
 };
 #endif

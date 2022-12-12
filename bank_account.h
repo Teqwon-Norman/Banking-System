@@ -29,7 +29,7 @@ private:
 public:
     // struct instance which also mapped to the users login-credentials
     PersonalInfo personal;
-    BankAccount; // constructor
+    BankAccount(); // constructor
 
     void createAccount();
     void displayAccountInfo() const;

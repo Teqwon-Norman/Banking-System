@@ -4,6 +4,17 @@
 #include <assert.h>
 #include "bank_account.h"
 
+BankAccount::BankAccount() {
+    personal.first = "";
+    personal.last = "";
+    personal.age = 18;
+    personal.dob = "";
+    personal.socialSecurity = "";
+    personal.email = "";
+    personal.cellNumber = "";
+    personal.address = "";
+}
+
 void BankAccount::createAccount() {
     std::string FIRST, LAST, DOB, SOCIALSECURITY, EMAIL, NUMBER, ADDR;
     int AGE;
@@ -90,7 +101,23 @@ void BankAccount::displayAccountInfo() const {
 }
 
 void BankAccount::storeNewAccount() {
-    std::fstream f;
-    f.open(personal.first, std::fstream::out);
-    assert(f.is_open());
+    std::string accountInfo [8] {
+        personal.first,
+        personal.last,
+        std::to_string(personal.age),
+        personal.dob,
+        personal.socialSecurity,
+        personal.email,
+        personal.cellNumber,
+        personal.address
+    };
+
+    for (const auto & i : accountInfo)
+    {
+        std::cout << i << std::endl;
+    }
+
+//    std::fstream file;
+//    file.open(personal.first, std::fstream::out);
+//    assert(file.is_open());
 }
